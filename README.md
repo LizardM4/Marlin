@@ -1,3 +1,69 @@
+# Custom Creality3D CR-10 Marlin Firmware
+
+This is a fork of the standard Marlin firmware, on which I applied custom settings for the Creality3D CR-10.
+
+The basic settings were derived from the overrides used in `Configuration.h` in the
+[original source](https://www.creality3d.cn/download/source-code_c0001) released by Creality.
+
+I am currently using these settings on my printer without any problem, but I cannot guarantee they're 100%
+correct. Please test carefully. **Do not use on printers other than CR-10**.
+
+List of the variables changed:
+  - `BAUDRATE`
+  - `MOTHERBOARD`
+  - `CUSTOM_MACHINE_NAME` can be anything.
+  - `DEFAULT_NOMINAL_FILAMENT_DIA`
+  - `POWER_SUPPLY` some firmware use `0`, but I believe `1` is correct.
+  - `TEMP_SENSOR_BED`
+  - `DEFAULT_Kp` some firmwares use different values for these, but I used the stock ones.
+  - `DEFAULT_Ki` some firmwares use different values for these, but I used the stock ones.
+  - `DEFAULT_Kd` some firmwares use different values for these, but I used the stock ones.
+  - `EXTRUDE_MAXLENGTH` probably the default value is just as fine
+  - `X_DRIVER_TYPE` I believe this is the driver used in the stock board.
+  - `Y_DRIVER_TYPE` I believe this is the driver used in the stock board.
+  - `Z_DRIVER_TYPE` I believe this is the driver used in the stock board.
+  - `E0_DRIVER_TYPE` I believe this is the driver used in the stock board.
+  - `DEFAULT_AXIS_STEP_PER_UNIT`
+  - `DEFAULT_MAX_FEEDRATE`
+  - `DEFAULT_MAX_ACCELERATION`
+  - `DEFAULT_ACCELERATION`
+  - `DEFAULT_RETRACT_ACCELERATION`
+  - `DEFAULT_TRAVEL_ACCELERATION`
+  - `DEFAULT_XJERK`
+  - `DEFAULT_YJERK`
+  - `DEFAULT_ZJERK`
+  - `X_PROBE_OFFSET_FROM_EXTRUDER` As in the stock firmware.
+  - `Y_PROBE_OFFSET_FROM_EXTRUDER` As in the stock firmware.
+  - `Z_PROBE_OFFSET_FROM_EXTRUDER` As in the stock firmware.
+  - `MIN_PROBE_EDGE` Safety margin I added myself.
+  - `INVERT_X_DIR`
+  - `INVERT_E0_DIR`
+  - `Z_HOMING_HEIGHT` The stock firmware sets this.
+  - `X_BED_SIZE` The stock firmware sets this to `320`, but better safe than sorry.
+  - `Y_BED_SIZE` The stock firmware sets this to `320`, but better safe than sorry.
+  - `Z_MAX_POS` The stock firmware sets this to `420`, but better safe than sorry.
+  - `LEFT_PROBE_BED_POSITION` Just uncommented.
+  - `RIGHT_PROBE_BED_POSITION` Just uncommented.
+  - `FRONT_PROBE_BED_POSITION` Just uncommented.
+  - `BACK_PROBE_BED_POSITION` Just uncommented.
+  - `MANUAL_X_HOME_POS` Probably not necessary, but uncommented nonetheless.
+  - `MANUAL_Y_HOME_POS` Probably not necessary, but uncommented nonetheless.
+  - `MANUAL_Z_HOME_POS` Probably not necessary, but uncommented nonetheless.
+  - `Z_SAFE_HOMING` I added this myself because I prefer to home with a nozzle clear of anything on the plate.
+  - `PREHEAT_1_TEMP_HOTEND` Changed this to my default PLA settings.
+  - `PREHEAT_1_TEMP_BED` Changed this to my default PLA settings.
+  - `PREHEAT_2_TEMP_BED` Changed this to stock settings.
+  - `NOZZLE_PARK_FEATURE` The default parking used in the stock firmware is really bare bones, so I enabled this too.
+  - `DISPLAY_CHARSET_HD44780` Default `JAPANESE`, I tuned this to the locale I use.
+  - `SDSUPPORT`
+  - `REPRAP_DISCOUNT_FULL_GRAPHIC_SMART_CONTROLLER`
+  - `BABYSTEPPING` I use this feature, but it's not default stock.
+  - `ADVANCED_PAUSE_FEATURE` The default pause in the stock firmware ruins the print because it oozes, at least some retract is needed, so I enabled this.
+
+
+---
+
+
 # Marlin 3D Printer Firmware
 <img align="right" src="../../raw/1.1.x/buildroot/share/pixmaps/logo/marlin-250.png" />
 
